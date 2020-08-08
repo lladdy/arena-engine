@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from arena_engine.views import TestView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('test/', view=TestView.as_view(), name='test_view'),
 ]
