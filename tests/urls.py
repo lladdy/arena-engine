@@ -20,5 +20,4 @@ from arena_engine.views import TestView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', view=TestView.as_view(), name='test_view'),
 ]
