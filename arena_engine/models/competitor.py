@@ -10,8 +10,13 @@ validate_competitor_name = RegexValidator(r'^[0-9a-zA-Z\._\-]*$',
 
 class Competitor(models.Model):
     user = models.ForeignKey(django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='competitors')
+    """The user that owns this competitor"""
     name = models.CharField(max_length=50, unique=True, validators=[validate_competitor_name, ])
+    """The competitor name"""
     created = models.DateTimeField(auto_now_add=True)
+    """When this competitor was first created"""
+    active = models.BooleanField(default=False)
+    """Whether this competitor is currently active in the season."""
 
     class Meta:
         constraints = [
